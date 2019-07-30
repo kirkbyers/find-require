@@ -1,6 +1,6 @@
 # Find Require
 
-Finds where dependencies and devDependencies from a package.json in files in a directory.
+Finds where dependencies and devDependencies from a package.json are required in files in a directory.
 
 ## Usage 
 
