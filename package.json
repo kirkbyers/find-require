@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/main.ts",
+    "start": "ts-node src/find-required.ts",
+    "start:usage": "ts-node src/find-usage.ts",
     "ts-node": "ts-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -47,9 +47,9 @@ const allFilesInDir = targetDirs.reduce((result, dir) => {
     return result;
 }, []);
 
-const checkFileForUsage = (packageName: string, filePath: string): boolean => {
+const checkFileForUsage = (stringMatch: string, filePath: string): boolean => {
     const fileString = fs.readFileSync(filePath).toString();
-    return fileString.indexOf(`require('${packageName}`) >= 0;
+    return fileString.indexOf(stringMatch) >= 0;
 }
 
 const usageMap = packages.reduce((result, item) => {
@@ -57,7 +57,7 @@ const usageMap = packages.reduce((result, item) => {
         result[item] = '';
     }
     for (const file of allFilesInDir) {
-        if (checkFileForUsage(item, file)) {
+        if (checkFileForUsage(`require('${item}`, file)) {
             result[item] = file;
             break;
         }
@@ -75,7 +75,7 @@ const depsUsage = Object.keys(usageMap).reduce((result, key) => {
     result.required[key] = usageMap[key];
     return result;
 }, {
-    required: {},
-    unused: []
-});
+        required: {},
+        unused: []
+    });
 console.log(depsUsage);
