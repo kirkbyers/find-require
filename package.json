@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node src/find-required.ts",
     "start:usage": "ts-node src/find-usage.ts",
+    "start:file-name-usage": "ts-node src/find-file-name-usage.ts",
     "ts-node": "ts-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
